@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/images/playerShip2_blue.png" type="Texture" id=1]
+[ext_resource path="res://Ship.gdns" type="Script" id=2]
+[ext_resource path="res://ScreenWrap.gd" type="Script" id=3]
+
+[node name="Ship" type="KinematicBody2D"]
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="ScreenWrap" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -34.7318, 38.2351, -7.01137, 56.2021, -4.98398, 56.0737, -0.408386, 47.0803, -1.19728, 45.6603, 14.4229, 16.3134, 16.4212, 14.2403, 18.3929, 13.6604, 19.5527, 10.6448, 37.414, 3.6859, 37.414, -4.31687, 20.0789, -10.611, 17.8808, -14.4839, 15.4733, -15.5306, -1.41721, -45.4724, -0.135647, -47.4659, -4.23622, -56.016, -7.98756, -56.016, -25.5506, -44.1652, -34.7029, -37.9733, -30.1854, -17.0385, -37.5923, -13.1063, -37.508, 12.4867, -30.5168, 16.579 )
+
+[node name="Sprite" type="Sprite" parent="CollisionPolygon2D"]
+texture = ExtResource( 1 )
