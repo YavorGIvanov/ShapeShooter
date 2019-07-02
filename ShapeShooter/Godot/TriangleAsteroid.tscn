@@ -1,3 +1,14 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
 
-[node name="TriangleAsteroid" type="Node2D"]
+[ext_resource path="res://assets/images/TriangleAsteroid.png" type="Texture" id=1]
+[ext_resource path="res://Asteroid.gdns" type="Script" id=2]
+
+[node name="TriangleAsteroid" type="KinematicBody2D"]
+collision_layer = 2
+script = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -17.0447, 13.2123, 17.011, 13.2123, 17.1396, 10.3851, 1.20404, -16.988, -1.23769, -16.988, -16.7877, 10.2566 )
+
+[node name="Sprite" type="Sprite" parent="CollisionPolygon2D"]
+texture = ExtResource( 1 )

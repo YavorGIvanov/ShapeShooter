@@ -1,3 +1,14 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
 
-[node name="PentagonAsteroid" type="Node2D"]
+[ext_resource path="res://assets/images/PentagonAsteroid.png" type="Texture" id=1]
+[ext_resource path="res://Asteroid.gdns" type="Script" id=2]
+
+[node name="PentagonAsteroid" type="KinematicBody2D"]
+collision_layer = 2
+script = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -10.9606, 14.9545, 10.1482, 14.8385, 17.3391, -4.76249, 0.521641, -16.8246, -1.10211, -16.9406, -16.6437, -5.92231, -16.7597, -2.55882 )
+
+[node name="Sprite" type="Sprite" parent="CollisionPolygon2D"]
+texture = ExtResource( 1 )

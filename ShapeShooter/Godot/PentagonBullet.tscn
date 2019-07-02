@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/images/PentagonBullet.png" type="Texture" id=1]
+[ext_resource path="res://Bullet.gdns" type="Script" id=2]
+
+[node name="PentagonBullet" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -10.4997, -3.0126, 0.000402451, -10.9999, 10.8595, -3.28184, 6.73127, 9.82092, -6.82021, 9.73117 )
+
+[node name="Sprite" type="Sprite" parent="CollisionPolygon2D"]
+texture = ExtResource( 1 )

@@ -7,13 +7,10 @@
 namespace godot
 {
 
-class Asteroid : public KinematicBody2D
+class Bullet : public KinematicBody2D
 {
-	GODOT_CLASS(Asteroid, KinematicBody2D)
+	GODOT_CLASS(Bullet, KinematicBody2D)
 public:
-	static const int WIDTH = 68;
-	static const int HEIGHT = 68;
-	
 	static int m_Velocity;
 	static float m_RotationStep;
 
@@ -21,12 +18,13 @@ public:
 	void _init();
 	void _ready();
 	void _process(float delta);
-
-	Asteroid();
-	~Asteroid();
+	
+	Bullet();
+	~Bullet();
 
 	void UpdatePosition(float delta);
-	void HandleCollision();
+private:
+	Common::Shape m_Shape;
 };
 
 }

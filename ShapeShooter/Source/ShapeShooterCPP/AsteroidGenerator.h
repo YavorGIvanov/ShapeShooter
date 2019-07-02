@@ -1,31 +1,37 @@
-//#pragma once
-//
-//#include <core/Godot.hpp>
-//#include <Node2D.hpp>
-//
-//namespace godot 
-//{
-//enum class AsteroidShapes
-//{
-//	Triangle,
-//	Square,
-//	Pentagon,
-//	Shape_Count
-//};
-//
-//class AsteroidGenerator : public Node2D
-//{
-//	GODOT_CLASS(AsteroidGenerator, Node2D)
-//public:
-//	static const uint32_t SHAPE_COUNT = static_cast<unsigned>(AsteroidShapes::Shape_Count);
-//	static const godot::String m_ShapeToStringMapping[SHAPE_COUNT];
-//
-//	static void _register_methods();
-//	void _ready();
-//	void _init();
-//
-//	AsteroidGenerator();
-//	~AsteroidGenerator();
-//private:
-//};
-//}
+#pragma once
+
+#include <core/Godot.hpp>
+#include <Node2D.hpp>
+#include <core/Ref.hpp>
+#include <PackedScene.hpp>
+#include <random>
+#include "Common.h"
+
+namespace godot 
+{
+class AsteroidGenerator : public Node2D
+{
+	GODOT_CLASS(AsteroidGenerator, Node2D)
+public:
+	static float m_DeltaSumLimit;
+
+	static void _register_methods();
+	void _init();
+	void _ready();
+	void _process(float delta);
+
+	AsteroidGenerator();
+	~AsteroidGenerator();
+
+	void UpdateCurrentShape();
+private:
+	float m_DeltaSum;
+	int m_CurrentShape;
+	std::mt19937 m_RandomGenerator;
+	std::uniform_int_distribution<> m_Distribution;
+
+	godot::Ref<PackedScene> m_TriangleAsteroid;
+	godot::Ref<PackedScene> m_SquareAsteroid;
+	godot::Ref<PackedScene> m_PentagonAsteroid;
+};
+}

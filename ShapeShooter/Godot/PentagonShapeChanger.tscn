@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/images/PentagonShapeChanger.png" type="Texture" id=1]
+[ext_resource path="res://ShapeChanger.gdns" type="Script" id=2]
+
+[node name="PentagonShapeChanger" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 68.0
+margin_bottom = 68.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="TextureRect"]
+collision_layer = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextureRect/Area2D"]
+polygon = PoolVector2Array( 13.5915, 65.8501, 54.1473, 65.8501, 68.1665, 25.044, 33.8694, 0.760667, 0.573635, 25.5447 )
+[connection signal="body_entered" from="TextureRect/Area2D" to="." method="_on_Area2D_body_entered"]

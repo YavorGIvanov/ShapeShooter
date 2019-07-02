@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/images/TriangleShapeChanger.png" type="Texture" id=1]
+[ext_resource path="res://ShapeChanger.gdns" type="Script" id=2]
+
+[node name="TriangleShapeChanger" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="TextureRect"]
+collision_layer = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextureRect/Area2D"]
+position = Vector2( 6.50661, 6.32836 )
+scale = Vector2( 1.63564, 1.70453 )
+polygon = PoolVector2Array( -4.19328, 30.3429, 15.6489, -3.34345, 17.5144, -3.50618, 36.5085, 27.9019, 37.5261, 31.4821, -3.32383, 31.4001 )
+[connection signal="body_entered" from="TextureRect/Area2D" to="." method="_on_Area2D_body_entered"]

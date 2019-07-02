@@ -156,15 +156,20 @@
   <ItemGroup>
     <ClCompile Include="Asteroid.cpp" />
     <ClCompile Include="AsteroidGenerator.cpp" />
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="GodotLibrary.cpp" />
-    <ClCompile Include="World.cpp" />
+    <ClCompile Include="ShapeChanger.cpp" />
     <ClCompile Include="Ship.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Asteroid.h" />
     <ClInclude Include="AsteroidGenerator.h" />
-    <ClInclude Include="World.h" />
+    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Common.h" />
+    <ClInclude Include="ShapeChanger.h" />
     <ClInclude Include="Ship.h" />
+    <ClInclude Include="World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
